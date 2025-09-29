@@ -584,11 +584,11 @@ function initHolographicCards() {
             name: 'Audi R8 V10 Performance',
             year: '2024',
             images: [
-                'image/audi (1).jpeg',
-                'image/audi (2).jpeg',
-                'image/audi (3).jpeg',
-                'image/audi (5).jpeg',
-                'image/audi (4).jpeg'
+                'image/audi-1.jpeg',
+                'image/audi-2.jpeg',
+                'image/audi-3.jpeg',
+                'image/audi-5.jpeg',
+                'image/audi-4.jpeg'
             ],
             specs: {
                 performance: [
@@ -612,12 +612,12 @@ function initHolographicCards() {
             name: 'Audi RS6 Avant Performance',
             year: '2024',
             images: [
-                'image/AudiRS6 (1).jpeg',
-                'image/AudiRS6 (2).jpeg',
-                'image/AudiRS6 (3).jpeg',
-                'image/AudiRS6 (4).jpeg',
-                'image/AudiRS6 (5).jpeg',
-                'image/AudiRS6 (6).jpeg'
+                'image/AudiRS6-1.jpeg',
+                'image/AudiRS6-2.jpeg',
+                'image/AudiRS6-3.jpeg',
+                'image/AudiRS6-4.jpeg',
+                'image/AudiRS6-5.jpeg',
+                'image/AudiRS6-6.jpeg'
             ],
             specs: {
                 performance: [
@@ -640,12 +640,12 @@ function initHolographicCards() {
             name: 'Volkswagen Golf R (Gris)',
             year: '2024',
             images: [
-                'image/wolkswagen_gris (1).jpeg',
-                'image/wolkswagen_gris (2).jpeg',
-                'image/wolkswagen_gris (3).jpeg',
-                'image/wolkswagen_gris (4).jpeg',
-                'image/wolkswagen_gris (5).jpeg',
-                'image/wolkswagen_gris (6).jpeg'
+                'image/wolkswagen_gris-1.jpeg',
+                'image/wolkswagen_gris-2.jpeg',
+                'image/wolkswagen_gris-3.jpeg',
+                'image/wolkswagen_gris-4.jpeg',
+                'image/wolkswagen_gris-5.jpeg',
+                'image/wolkswagen_gris-6.jpeg'
             ],
             specs: {
                 performance: [
@@ -669,11 +669,11 @@ function initHolographicCards() {
             name: 'Volkswagen Golf R (Noir)',
             year: '2024',
             images: [
-                'image/wolkswagen_noir (1).jpeg',
-                'image/wolkswagen_noir (2).jpeg',
-                'image/wolkswagen_gris (3).jpeg',
-                'image/wolkswagen_gris (4).jpeg',
-                'image/wolkswagen_noir (3).jpeg'
+                'image/wolkswagen_noir-1.jpeg',
+                'image/wolkswagen_noir-2.jpeg',
+                'image/wolkswagen_gris-3.jpeg',
+                'image/wolkswagen_gris-4.jpeg',
+                'image/wolkswagen_noir-3.jpeg'
             ],
             specs: {
                 performance: [
@@ -699,8 +699,8 @@ function initHolographicCards() {
                 'image/jWagon.jpeg',
                 'image/jWagon2.jpeg',
                 'image/wheel_jWagon.jpeg',
-                'image/jWagon_back (2).jpeg',
-                'image/jWagon_back (1).jpeg'
+                'image/jWagon_back-2.jpeg',
+                'image/jWagon_back-1.jpeg'
             ],
             specs: {
                 performance: [
