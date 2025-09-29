@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamilton Motors - Location de Voitures de Luxe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <div class="video-overlay"></div>
+        <video id="background-video" autoplay muted loop playsinline>
+            <!-- REMPLACEZ CE CHEMIN PAR LE CHEMIN DE VOTRE VIDÉO -->
+            <source src="C:\Users\hubas\Videos\video.mp4" type="video/mp4">
+            <!-- Vous pouvez ajouter d'autres formats si nécessaire -->
+            <!-- <source src="votre-video.webm" type="video/webm"> -->
+        </video>
+        <!-- Fallback background image -->
+        <div class="fallback-background" id="fallback-bg">
+            <div class="fallback-content">
+                <h1>HAMILTON MOTORS</h1>
+                <p>Luxury Car Rental Experience</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="image/logo.jpg" alt="NH1 Logo" class="logo-img">
+                <h1>HAMILTON MOTORS</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Accueil</a></li>
+                <li><a href="#fleet" class="nav-link">Flotte</a></li>
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-subtitle">EXPÉRIENCE DE LOCATION AUTOMOBILE DE LUXE</h1>
+            <p class="hero-description">Où l'élégance rencontre la performance. Découvrez le summum du luxe automobile.</p>
+            <div class="hero-buttons">
+                <a href="#fleet" class="btn-primary">Explorer nos véhicules</a>
+                <a href="#contact" class="btn-secondary">Réserver Maintenant</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Fleet Section - Holographic Cards -->
+    <section id="fleet" class="fleet-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">NOTRE FLOTTE</h2>
+                <p class="section-subtitle">Collection exclusive de véhicules de luxe</p>
+            </div>
+            
+            <!-- Holographic Cards Grid -->
+            <div class="holographic-grid">
+                
+                <!-- Vehicle Card 1 - Mercedes G-Wagon -->
+                <div class="holographic-card" data-vehicle="mercedes-g63">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="image/jWagon.jpeg" alt="Mercedes-AMG G63">
+                        <div class="image-overlay"></div>
+                        <div class="availability-badge">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Disponible</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Mercedes-AMG G63</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">577 CV</span>
+                                <span class="spec-label">Puissance</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-value">4.5s</span>
+                                <span class="spec-label">0-100 km/h</span>
+                            </div>
+                            <div class="spec-item price-item">
+                                <span class="spec-value">1'200 CHF</span>
+                                <span class="spec-label">par jour</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">Voir détails</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 2 - Mercedes GT 63 S -->
+                <div class="holographic-card" data-vehicle="mercedes-gt63">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="image/mercedes.jpeg" alt="Mercedes-AMG GT 63 S 4-Door Coupé">
+                        <div class="image-overlay"></div>
+                        <div class="availability-badge">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Disponible</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Mercedes-AMG GT 63 S 4-Door Coupé</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">630 CV</span>
+                                <span class="spec-label">Puissance</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-value">3.2s</span>
+                                <span class="spec-label">0-100 km/h</span>
+                            </div>
+                            <div class="spec-item price-item">
+                                <span class="spec-value">1'500 CHF</span>
+                                <span class="spec-label">par jour</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">Voir détails</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3 - Audi R8 -->
+                <div class="holographic-card" data-vehicle="audi-r8">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="image/audi (1).jpeg" alt="Audi R8 V10 Performance">
+                        <div class="image-overlay"></div>
+                        <div class="availability-badge reserved">
+                            <i class="fas fa-clock"></i>
+                            <span>Réservée</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Audi R8 V10 Performance</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">620 CV</span>
+                                <span class="spec-label">Puissance</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-value">3.1s</span>
+                                <span class="spec-label">0-100 km/h</span>
+                            </div>
+                            <div class="spec-item price-item">
+                                <span class="spec-value">1'800 CHF</span>
+                                <span class="spec-label">par jour</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">Voir détails</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 4 - Audi RS6 -->
+                <div class="holographic-card" data-vehicle="audi-rs6">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="image/AudiRS6 (1).jpeg" alt="Audi RS6 Avant Performance">
+                        <div class="image-overlay"></div>
+                        <div class="availability-badge">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Disponible</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Audi RS6 Avant Performance</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">630 CV</span>
+                                <span class="spec-label">Puissance</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-value">3.6s</span>
+                                <span class="spec-label">0-100 km/h</span>
+                            </div>
+                            <div class="spec-item price-item">
+                                <span class="spec-value">1'400 CHF</span>
+                                <span class="spec-label">par jour</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">Voir détails</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 5 - Volkswagen Golf R -->
+                <div class="holographic-card" data-vehicle="volkswagen-golf">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="image/wolkswagen_gris (1).jpeg" alt="Volkswagen Golf R">
+                        <div class="image-overlay"></div>
+                        <div class="availability-badge unavailable">
+                            <i class="fas fa-times-circle"></i>
+                            <span>Indisponible</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Volkswagen Golf R (Gris)</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">320 CV</span>
+                                <span class="spec-label">Puissance</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-value">4.7s</span>
+                                <span class="spec-label">0-100 km/h</span>
+                            </div>
+                            <div class="spec-item price-item">
+                                <span class="spec-value">800 CHF</span>
+                                <span class="spec-label">par jour</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">Voir détails</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 6 - Volkswagen Golf R (Noir) -->
+                <div class="holographic-card" data-vehicle="volkswagen-golf-noir">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <img src="image/wolkswagen_noir (1).jpeg" alt="Volkswagen Golf R (Noir)">
+                        <div class="image-overlay"></div>
+                        <div class="availability-badge">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Disponible</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Volkswagen Golf R (Noir)</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">320 CV</span>
+                                <span class="spec-label">Puissance</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-value">4.7s</span>
+                                <span class="spec-label">0-100 km/h</span>
+                            </div>
+                            <div class="spec-item price-item">
+                                <span class="spec-value">800 CHF</span>
+                                <span class="spec-label">par jour</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">Voir détails</span>
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 7 - Coming Soon -->
+                <div class="holographic-card coming-soon" data-vehicle="coming-soon">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <div class="coming-soon-placeholder">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Nouveau Véhicule</h3>
+                            <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">Bientôt</span>
+                                <span class="spec-label">Disponible</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">En préparation</span>
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Card 3 - Coming Soon -->
+                <div class="holographic-card coming-soon" data-vehicle="coming-soon-2">
+                    <div class="card-glow"></div>
+                    <div class="card-image">
+                        <div class="coming-soon-placeholder">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="image-overlay"></div>
+                                </div>
+                    <div class="card-content">
+                        <h3 class="vehicle-name">Nouveau Véhicule</h3>
+                        <div class="vehicle-specs">
+                            <div class="spec-item">
+                                <span class="spec-value">Bientôt</span>
+                                <span class="spec-label">Disponible</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <span class="view-details">En préparation</span>
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Vehicle Modal -->
+    <div id="vehicle-fullscreen-modal" class="vehicle-fullscreen-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close-btn" id="close-fullscreen-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="vehicle-gallery">
+                <div class="gallery-main">
+                    <img id="modal-main-image" src="" alt="" class="main-image">
+                    <div class="gallery-nav">
+                        <button class="gallery-prev" id="gallery-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="gallery-next" id="gallery-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="gallery-thumbnails" id="gallery-thumbnails">
+                    <!-- Thumbnails will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="vehicle-details">
+                <div class="vehicle-header">
+                    <h2 id="modal-vehicle-name">Mercedes-AMG G63</h2>
+                    <p id="modal-vehicle-year">2024</p>
+                </div>
+                
+                <div class="vehicle-specifications">
+                    <div class="spec-category">
+                        <h4>Performance</h4>
+                        <div class="spec-grid">
+                            <div class="spec-detail">
+                                <span class="spec-label">Puissance</span>
+                                <span class="spec-value">577 CV</span>
+                            </div>
+                            <div class="spec-detail">
+                                <span class="spec-label">Couple</span>
+                                <span class="spec-value">850 Nm</span>
+                            </div>
+                            <div class="spec-detail">
+                                <span class="spec-label">0-100 km/h</span>
+                                <span class="spec-value">4.5s</span>
+                            </div>
+                            <div class="spec-detail">
+                                <span class="spec-label">Vitesse max</span>
+                                <span class="spec-value">220 km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="spec-category">
+                        <h4>Moteur</h4>
+                        <div class="spec-grid">
+                            <div class="spec-detail">
+                                <span class="spec-label">Type</span>
+                                <span class="spec-value">V8 Biturbo</span>
+                            </div>
+                            <div class="spec-detail">
+                                <span class="spec-label">Cylindrée</span>
+                                <span class="spec-value">4.0L</span>
+                            </div>
+                            <div class="spec-detail">
+                                <span class="spec-label">Transmission</span>
+                                <span class="spec-value">9G-TRONIC</span>
+                            </div>
+                            <div class="spec-detail">
+                                <span class="spec-label">Consommation</span>
+                                <span class="spec-value">13.1L/100km</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vehicle-pricing">
+                    <div class="price-display">
+                        <span class="price-amount">1'200 CHF</span>
+                        <span class="price-period">par jour</span>
+                    </div>
+                    <div class="availability-status">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Disponible</span>
+                    </div>
+                </div>
+                
+                <div class="vehicle-actions">
+                    <a href="https://wa.me/41791962868?text=Bonjour, je suis intéressé par la Mercedes-AMG G63" 
+                       class="reserve-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Réserver maintenant
+                    </a>
+                    <button class="contact-btn">
+                        <i class="fas fa-phone"></i>
+                        Nous contacter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">À PROPOS DE HAMILTON MOTORS</h2>
+                    <p class="about-description">
+                        Depuis quelques années, Hamilton Motors est la destination de référence pour la location de voitures luxueuses. 
+                        Nous sélectionnons les véhicules les plus exclusifs, offrant à nos clients exigeants des expériences automobiles 
+                        inégalées qui correspondent à leur style de vie sophistiqué.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-crown"></i>
+                            <h3>Flotte Exclusive</h3>
+                            <p>Collection soigneusement sélectionnée des plus belles automobiles au monde</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Service Premium</h3>
+                            <p>Service de luxe avec chauffeurs personnels et conciergerie</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <h3>Disponibilité 24/7</h3>
+                            <p>Service disponible en permanence pour votre commodité</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">NOUS CONTACTER</h2>
+                <p class="contact-description">Prêt à découvrir le summum du luxe automobile ?</p>
+                
+                <div class="contact-grid">
+                    <!-- Info - Left Side -->
+                    <div class="contact-info-section">
+                        <h3 class="contact-section-title">Informations de Contact</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                                <span>+41 79 196 28 68</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                                <span>hamiltonmotors@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                                <span>Genève & Lausanne, Switzerland</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Section - Right Side -->
+                    <div class="whatsapp-section">
+                        <div class="whatsapp-card">
+                            <div class="whatsapp-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h3 class="whatsapp-title">Contact WhatsApp</h3>
+                            <p class="whatsapp-description">
+                                Obtenez un support instantané et un service personnalisé via WhatsApp. 
+                                Nos spécialistes sont disponibles 24h/24 et 7j/7 pour vous aider 
+                                avec vos besoins de location et vous fournir des recommandations exclusives.
+                            </p>
+                            <a href="https://wa.me/41791962868" class="btn-whatsapp-start" target="_blank">
+                                Commencer la Conversation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Detail Modal -->
+    <div id="vehicle-modal" class="vehicle-modal">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="modal-body">
+                    <div class="modal-image">
+                        <img id="modal-image" src="" alt="">
+                    </div>
+                    <div class="modal-info">
+                        <h2 id="modal-title"></h2>
+                        <p id="modal-year" class="modal-year"></p>
+                        <div class="modal-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Moteur</span>
+                                <span id="modal-engine" class="spec-value"></span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Puissance</span>
+                                <span id="modal-hp" class="spec-value"></span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">0-100 km/h</span>
+                                <span id="modal-acceleration" class="spec-value"></span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Tarif Journalier</span>
+                                <span id="modal-price" class="spec-value price-highlight"></span>
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <a href="#" id="modal-whatsapp" class="btn-whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                Contacter via WhatsApp
+                            </a>
+                            <button class="btn-book">Réserver Maintenant</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/15551234567" target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>HAMILTON MOTORS</h3>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Accueil</a>
+                    <a href="#fleet">Flotte</a>
+                    <a href="#about">À propos</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hamilton Motors. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

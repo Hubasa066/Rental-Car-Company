@@ -1,0 +1,2054 @@
+/* Hamilton Motors - Ultra-Luxury Car Rental CSS */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #000000;
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw; /* 16:9 aspect ratio */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 16:9 aspect ratio */
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* Fallback background */
+.fallback-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.3) contrast(1.2);
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fallback-content {
+    text-align: center;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.fallback-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.fallback-content p {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #cccccc;
+    opacity: 0.8;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(20, 20, 20, 0.6) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: -1;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 20px 0;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+    opacity: 1;
+    display: block;
+}
+
+.logo-img:hover {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    transform: scale(1.05);
+}
+
+.nav-logo h1 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0 40px;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 120px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease 0.5s forwards;
+    color: #ffffff;
+}
+
+.hero-subtitle {
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease 1s forwards;
+    color: #ffffff;
+}
+
+.hero-description {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease 1.5s forwards;
+    color: #aaaaaa;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease 2s forwards;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: 1px solid #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: transparent;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+    width: 2px;
+    height: 30px;
+    background: #ffffff;
+    position: relative;
+}
+
+.scroll-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(45deg);
+}
+
+/* Fleet Section - Holographic Cards */
+.fleet-section {
+    padding: 120px 0;
+    background: #000000;
+    position: relative;
+    min-height: 100vh;
+}
+
+.fleet-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(0, 225, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(0, 225, 255, 0.01) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.95) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.holographic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.holographic-card {
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 225, 255, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.holographic-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(0, 225, 255, 0.5);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(0, 225, 255, 0.3);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        rgba(0, 225, 255, 0.1) 0%, 
+        transparent 50%, 
+        rgba(0, 225, 255, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.holographic-card:hover .card-glow {
+    opacity: 1;
+}
+
+.card-image {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.6s ease;
+}
+
+.holographic-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 60%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+}
+
+.card-content {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.vehicle-name {
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 225, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+.availability-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 3;
+}
+
+.availability-badge.available {
+    background: rgba(0, 255, 0, 0.9);
+    border: 1px solid #00ff00;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+    animation: availability-pulse 2s ease-in-out infinite;
+}
+
+.availability-badge:not(.reserved):not(.unavailable) {
+    background: rgba(0, 255, 0, 0.9);
+    border: 1px solid #00ff00;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+    animation: availability-pulse 2s ease-in-out infinite;
+}
+
+.availability-badge.reserved {
+    background: rgba(255, 165, 0, 0.9);
+    border: 1px solid #ffa500;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.4);
+    animation: availability-pulse 2s ease-in-out infinite;
+}
+
+.availability-badge.unavailable {
+    background: rgba(128, 128, 128, 0.9);
+    border: 1px solid #808080;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(128, 128, 128, 0.4);
+    animation: none;
+}
+
+.availability-badge i {
+    font-size: 14px;
+}
+
+@keyframes availability-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+.vehicle-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+    background: rgba(0, 225, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 225, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 225, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+.holographic-card:hover .spec-item {
+    transform: translateX(5px);
+}
+
+.spec-value {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 225, 255, 0.3);
+}
+
+.spec-label {
+    font-size: 14px;
+    color: #cccccc;
+    font-weight: 300;
+}
+
+.price-item .spec-value {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.card-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: rgba(0, 225, 255, 0.1);
+    border: 1px solid rgba(0, 225, 255, 0.3);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.holographic-card:hover .card-action {
+    background: rgba(0, 225, 255, 0.15);
+    border-color: rgba(0, 225, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.view-details {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card-action i {
+    color: #00E1FF;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.holographic-card:hover .card-action i {
+    transform: scale(1.1);
+}
+
+.coming-soon-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #666666;
+}
+
+.coming-soon-placeholder i {
+    font-size: 60px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Fullscreen Vehicle Modal */
+.vehicle-fullscreen-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vehicle-fullscreen-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.modal-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 225, 255, 0.1);
+    border: 1px solid rgba(0, 225, 255, 0.3);
+    border-radius: 50%;
+    color: #00E1FF;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    background: #00E1FF;
+    color: #000000;
+    transform: scale(1.1);
+}
+
+.vehicle-gallery {
+    background: #111111;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.gallery-main {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.gallery-prev, .gallery-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 225, 255, 0.3);
+    border-radius: 50%;
+    color: #00E1FF;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+}
+
+.gallery-prev:hover, .gallery-next:hover {
+    background: #00E1FF;
+    color: #000000;
+    transform: scale(1.1);
+}
+
+.gallery-thumbnails {
+    height: 100px;
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    overflow-x: auto;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.vehicle-details {
+    background: #0a0a0a;
+    padding: 60px 40px;
+    overflow-y: auto;
+    border-left: 1px solid rgba(0, 225, 255, 0.2);
+}
+
+.vehicle-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.vehicle-header h2 {
+    font-size: 36px;
+    font-weight: 300;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0, 225, 255, 0.3);
+}
+
+.vehicle-header p {
+    font-size: 18px;
+    color: #00E1FF;
+    font-weight: 300;
+}
+
+.vehicle-specifications {
+    margin-bottom: 40px;
+}
+
+.spec-category {
+    margin-bottom: 30px;
+}
+
+.spec-category h4 {
+    font-size: 20px;
+    color: #00E1FF;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(0, 225, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.spec-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 225, 255, 0.05);
+    border: 1px solid rgba(0, 225, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.spec-detail:hover {
+    background: rgba(0, 225, 255, 0.1);
+    border-color: rgba(0, 225, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.spec-detail .spec-label {
+    font-size: 14px;
+    color: #cccccc;
+    font-weight: 300;
+}
+
+.spec-detail .spec-value {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.vehicle-pricing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(0, 225, 255, 0.05);
+    border: 1px solid rgba(0, 225, 255, 0.2);
+    border-radius: 15px;
+}
+
+.price-display {
+    text-align: center;
+}
+
+.price-amount {
+    font-size: 32px;
+    font-weight: 600;
+    color: #00E1FF;
+    display: block;
+    text-shadow: 0 0 10px rgba(0, 225, 255, 0.3);
+}
+
+.price-period {
+    font-size: 14px;
+    color: #cccccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.availability-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #00ff00;
+    font-weight: 500;
+}
+
+.vehicle-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.reserve-btn, .contact-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.reserve-btn {
+    background: #00E1FF;
+    color: #000000;
+}
+
+.reserve-btn:hover {
+    background: #00B8E6;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 225, 255, 0.4);
+}
+
+.contact-btn {
+    background: transparent;
+    color: #00E1FF;
+    border: 1px solid #00E1FF;
+}
+
+.contact-btn:hover {
+    background: #00E1FF;
+    color: #000000;
+    transform: translateY(-3px);
+}
+
+.fleet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Fleet Filters */
+.fleet-filters {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #cccccc;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.filter-group select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-size: 14px;
+    min-width: 150px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: #ffd700;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.filter-group select option {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Fleet Grid */
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.hidden-fleet {
+    display: none;
+}
+
+.vehicle-card {
+    position: relative;
+    height: 500px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.vehicle-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vehicle-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 215, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.vehicle-image {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    background: #1a1a1a;
+}
+
+.vehicle-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: relative;
+    z-index: 1;
+    background: #1a1a1a;
+}
+
+.vehicle-card:hover .vehicle-image img {
+    transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.1) saturate(1.1);
+}
+
+.vehicle-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vehicle-card:hover .vehicle-overlay {
+    opacity: 1;
+}
+
+.vehicle-specs {
+    width: 100%;
+}
+
+.vehicle-specs h3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.vehicle-specs .year {
+    font-size: 14px;
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.vehicle-specs .specs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.vehicle-specs .specs span {
+    font-size: 13px;
+    color: #cccccc;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.vehicle-specs .price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffd700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.availability {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(0, 255, 0, 0.15);
+    border: 1px solid #00ff00;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #00ff00;
+    letter-spacing: 1px;
+}
+
+/* WhatsApp Card Button */
+.whatsapp-card-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vehicle-card:hover .whatsapp-card-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.whatsapp-card-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #25D366;
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-card-btn a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+/* View More Button */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.btn-view-more {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-view-more::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-view-more:hover::before {
+    left: 100%;
+}
+
+.btn-view-more:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffd700;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-view-more:active {
+    transform: translateY(-1px);
+}
+
+.btn-icon {
+    transition: transform 0.3s ease;
+    font-size: 14px;
+}
+
+.btn-view-more.expanded .btn-icon {
+    transform: rotate(180deg);
+}
+
+.btn-view-more.expanded .btn-text {
+    opacity: 0;
+}
+
+.btn-view-more.expanded .btn-text::after {
+    content: 'Voir Moins';
+    opacity: 1;
+}
+
+.btn-text::after {
+    content: 'Voir Moins';
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Force image visibility */
+img {
+    max-width: 100%;
+    height: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+.vehicle-image img,
+.logo-img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    filter: none !important;
+}
+
+/* EMERGENCY FLEET VISIBILITY FIX */
+.fleet-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)) !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+}
+
+.vehicle-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.vehicle-image {
+    background: #2a2a2a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.vehicle-image img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    filter: none !important;
+    background: #2a2a2a !important;
+}
+
+.vehicle-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)) !important;
+}
+
+.vehicle-specs {
+    color: #ffffff !important;
+}
+
+.vehicle-specs h3 {
+    color: #ffffff !important;
+    font-size: 24px !important;
+}
+
+.vehicle-specs .year {
+    color: #ffd700 !important;
+}
+
+.vehicle-specs .specs span {
+    color: #cccccc !important;
+}
+
+.vehicle-specs .price {
+    color: #ffd700 !important;
+    font-weight: 600 !important;
+}
+
+.availability {
+    background: rgba(0, 255, 0, 0.2) !important;
+    color: #00ff00 !important;
+    border: 1px solid #00ff00 !important;
+}
+
+/* Vehicle Modal */
+.vehicle-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.vehicle-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.vehicle-modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+}
+
+.modal-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+.modal-info {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-info h2 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.modal-year {
+    font-size: 16px;
+    color: #ffd700;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.modal-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spec-label {
+    font-size: 14px;
+    color: #aaaaaa;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.spec-value {
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.price-highlight {
+    color: #ffd700 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1;
+    justify-content: center;
+}
+
+.btn-whatsapp:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+.btn-book {
+    padding: 15px 25px;
+    background: transparent;
+    border: 1px solid #ffd700;
+    color: #ffd700;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.btn-book:hover {
+    background: #ffd700;
+    color: #000000;
+    transform: translateY(-2px);
+}
+
+/* About Section */
+.about {
+    padding: 120px 0;
+    background: #111111;
+    position: relative;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-text {
+    text-align: center;
+}
+
+.about-description {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #aaaaaa;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.feature {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+.feature i {
+    font-size: 48px;
+    color: #00E1FF;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.feature p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Contact Grid Layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+}
+
+.contact-info-section {
+    text-align: left;
+}
+
+.contact-section-title {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.whatsapp-section {
+    text-align: center;
+}
+
+.whatsapp-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.whatsapp-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 225, 255, 0.35);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-icon {
+    width: 60px;
+    height: 60px;
+    background: #00E1FF; /* Electric Cyan */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 30px rgba(0, 225, 255, 0.35);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-card:hover .whatsapp-icon {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 225, 255, 0.55);
+}
+
+.whatsapp-icon i {
+    font-size: 28px;
+    color: #000000;
+}
+
+.whatsapp-title {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.whatsapp-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.btn-whatsapp-start {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    background: #00E1FF;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-whatsapp-start::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-whatsapp-start:hover::before {
+    left: 100%;
+}
+
+.btn-whatsapp-start:hover {
+    background: #00B8E6;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 225, 255, 0.45);
+}
+
+/* Contact Section */
+.contact {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #111111 0%, #000000 100%);
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-description {
+    font-size: 18px;
+    color: #aaaaaa;
+    margin-bottom: 50px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    color: #ffffff;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.contact-item i {
+    font-size: 20px;
+    color: #cccccc;
+    min-width: 24px;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 28px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+/* Footer */
+.footer {
+    background: #000000;
+    padding: 60px 0 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo h3 {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social a {
+    color: #aaaaaa;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: #666666;
+    font-size: 12px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .fleet-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+    }
+    
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-logo {
+        gap: 10px;
+    }
+    
+    .logo-img {
+        height: 30px;
+    }
+    
+    .nav-logo h1 {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+    
+    .hero-title {
+        font-size: 60px;
+        letter-spacing: 4px;
+    }
+    
+    .hero-subtitle {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .fleet-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+    
+    .fleet-filters {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .filter-group {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .vehicle-card {
+        height: 450px;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .contact-info-section {
+        text-align: center;
+    }
+    
+    .holographic-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .holographic-card {
+        max-width: 100%;
+    }
+    
+    .modal-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    
+    .vehicle-gallery {
+        order: 1;
+    }
+    
+    .vehicle-details {
+        order: 2;
+        padding: 30px 20px;
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+    
+    .spec-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .vehicle-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+    
+    .modal-overlay {
+        padding: 20px;
+    }
+    
+    .modal-content {
+        max-height: 90vh;
+    }
+    
+    .modal-info {
+        padding: 30px 20px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 0 20px;
+    }
+    
+    .hero-title {
+        font-size: 40px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    .fleet-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .vehicle-card {
+        height: 400px;
+    }
+    
+    .fleet-filters {
+        gap: 15px;
+    }
+    
+    .filter-group select {
+        min-width: 200px;
+    }
+    
+    .modal-info h2 {
+        font-size: 24px;
+    }
+    
+    .modal-actions {
+        gap: 10px;
+    }
+    
+    .btn-whatsapp, .btn-book {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
