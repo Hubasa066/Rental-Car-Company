@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
     background-repeat: no-repeat;
     filter: brightness(0.3) contrast(1.2);
     z-index: -1;
-    display: flex;
+    display: none; /* Hidden by default, shown only on error */
     align-items: center;
     justify-content: center;
 }

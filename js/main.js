@@ -195,16 +195,23 @@ function initVideoBackground() {
     const fallbackBackground = document.querySelector('#fallback-bg');
     
     if (videoElement && fallbackBackground) {
-        // Show fallback by default
-        fallbackBackground.style.display = 'flex';
+        console.log('Video background elements found');
+        // Fallback is hidden by default in CSS
         
         // Check if video loads successfully
         videoElement.addEventListener('loadeddata', function() {
             console.log('Local video loaded successfully');
-            // Hide fallback after video starts playing
-            setTimeout(function() {
-                fallbackBackground.style.display = 'none';
-            }, 1000);
+            // Ensure fallback stays hidden
+            fallbackBackground.style.display = 'none';
+        });
+        
+        // Additional events for debugging
+        videoElement.addEventListener('loadstart', function() {
+            console.log('Video loading started');
+        });
+        
+        videoElement.addEventListener('canplay', function() {
+            console.log('Video can start playing');
         });
         
         // If video fails to load, show fallback
