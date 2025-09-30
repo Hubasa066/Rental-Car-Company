@@ -827,12 +827,22 @@ function initHolographicCards() {
         
         // Update availability status
         if (availabilityStatus) {
+            const statusIcon = document.querySelector('.availability-status i');
             if (vehicle.status === 'reserved') {
                 availabilityStatus.textContent = 'Réservée';
+                if (statusIcon) {
+                    statusIcon.className = 'fas fa-clock';
+                }
             } else if (vehicle.status === 'unavailable') {
                 availabilityStatus.textContent = 'Indisponible';
+                if (statusIcon) {
+                    statusIcon.className = 'fas fa-times-circle';
+                }
             } else {
                 availabilityStatus.textContent = 'Disponible';
+                if (statusIcon) {
+                    statusIcon.className = 'fas fa-check-circle';
+                }
             }
         }
         

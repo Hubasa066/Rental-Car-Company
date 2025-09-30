@@ -841,6 +841,22 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.availability-status i {
+    font-size: 18px;
+}
+
+.availability-status i.fa-check-circle {
+    color: #00ff00;
+}
+
+.availability-status i.fa-clock {
+    color: #ffa500;
+}
+
+.availability-status i.fa-times-circle {
+    color: #808080;
+}
+
 .vehicle-actions {
     display: flex;
     gap: 20px;
