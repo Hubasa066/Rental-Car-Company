@@ -213,13 +213,6 @@ function initVideoBackground() {
             fallbackBackground.style.display = 'flex';
         });
         
-        // Set a timeout to show fallback if video doesn't load within 5 seconds
-        setTimeout(function() {
-            if (videoElement.readyState < 2) { // HAVE_CURRENT_DATA
-                console.log('Video loading timeout, showing fallback');
-                fallbackBackground.style.display = 'flex';
-            }
-        }, 5000);
         
         // Try to play video with user interaction (click anywhere)
         document.addEventListener('click', function() {
